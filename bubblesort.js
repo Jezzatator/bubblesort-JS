@@ -25,15 +25,19 @@ console.log(numbers)
 let numbersSorted = bubbleSort(numbers)
 
 function createDico(arr1, arr2) {
-var dico = new Map ([])
-dico.set(arr1, arr2)
+var dico = {};
+dico[arr1] = arr2
 return dico
 }
 
 var testDico = createDico(numbers, numbers2, testDico)
 console.log(testDico)
+console.log(testDico[5])
 
 
 document.body.innerHTML += '<h2> Le tableau trié est : ' + bubbleSort(numbers) + ' </h2>'
 document.body.innerHTML += '<h3> Le tableau non-trié était : ' + numbers2 + ' </h3>'
-document.body.innerHTML += '<p> Le dico crée est : ' + testDico + ' </p>'
+
+for (let k in testDico) {
+document.getElementById("Dico").innerHTML+="<tr><td>"+k+"</tr><td>"+testDico[k]+"</tr></td>"
+}
